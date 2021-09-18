@@ -4,12 +4,15 @@ import Game from './components/Game';
 import Games from './components/Games';
 import Typography from '@mui/material/Typography'
 import '@fontsource/roboto'
+import { CircularProgress } from '@mui/material';
+import Box from '@mui/material/Box';
+import ButtonAppBar from './components/ButtonAppBar';
 
 function App() {
   const [odds, setOdds] = useState()
   const [loading, setLoading] = useState(false)
-  const API_KEY = '1b325cb1602f827b2757de63505eacd4'
-  const url = `https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?apiKey=${API_KEY}&regions=us&markets=h2h,spreads&oddsFormat=american`
+  // const API_KEY = REACT_APP_API_KEY
+  // const url = `https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?apiKey=${API_KEY}&regions=us&markets=h2h,spreads&oddsFormat=american`
   
   useEffect(() => {
     const fetchOdds = async () => {
@@ -27,7 +30,12 @@ function App() {
 
   return (
     <div className="App">
-        {loading && <Typography>Loading...</Typography>}
+      <ButtonAppBar position="sticky" />
+        {loading && (
+          <Box sx={{ display: 'flex' }}>
+            <CircularProgress />
+          </Box>
+        )}
         {odds && <Games odds={odds} />  }
     </div>
   );
