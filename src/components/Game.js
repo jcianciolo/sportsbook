@@ -1,29 +1,33 @@
 import Typography from '@mui/material/Typography'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
-
+import ImageListItem from '@mui/material/ImageListItem'
+import ImageList from '@mui/material/ImageList'
 
 const Game = ({game}) => {
     const gameInfo = game.bookmakers.map((info) => {
+        const homeName = info.markets[0].outcomes[0].name
+        const homePrice = info.markets[0].outcomes[0].price
+        const awayName = info.markets[0].outcomes[1].name
+        const awayPrice = info.markets[0].outcomes[1].price
+    
         return (
-            <div key={info.key}>
-                <Card>
+            <ImageListItem key={info.key}>
+                <Card variant="outlined">
                     <CardContent>
-                        <Typography variant="h4">{info.title}</Typography>
-                        <Typography variant="h5">{info.markets[0].outcomes[0].name}: {info.markets[0].outcomes[0].price}</Typography>
-                        <Typography variant="h5">{info.markets[0].outcomes[1].name}: {info.markets[0].outcomes[1].price}</Typography>
+                        <Typography>{info.title}</Typography>
+                        <Typography>{homeName}: {homePrice}</Typography>
+                        <Typography>{awayName}: {awayPrice}</Typography>
                     </CardContent>
                 </Card>
-               
-            </div>
-
+            </ImageListItem>
         )
     })
 
     return (
-            <div>
+            <ImageList sx={{ width: '100%', height: 450 }} cols={3}>
                 {gameInfo}
-            </div>
+            </ImageList>
     )
 }
 
