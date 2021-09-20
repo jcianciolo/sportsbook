@@ -13,9 +13,9 @@ const Game = ({game}) => {
     
         return (
             <ImageListItem key={info.key}>
-                <Card variant="outlined">
+                <Card>
                     <CardContent>
-                        <Typography>{info.title}</Typography>
+                        <Typography fontSize='1.5rem'>{info.title}</Typography>
                         <Typography>{homeName}: {homePrice}</Typography>
                         <Typography>{awayName}: {awayPrice}</Typography>
                     </CardContent>
@@ -25,7 +25,7 @@ const Game = ({game}) => {
     })
 
     return (
-            <ImageList sx={{ width: '100%', height: 450 }} cols={3}>
+            <ImageList sx={{ width: '100%' }} cols={4}>
                 {gameInfo}
             </ImageList>
     )
