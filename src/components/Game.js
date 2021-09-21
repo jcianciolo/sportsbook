@@ -10,12 +10,14 @@ const Game = ({game}) => {
         const homePrice = info.markets[0].outcomes[0].price
         const awayName = info.markets[0].outcomes[1].name
         const awayPrice = info.markets[0].outcomes[1].price
+        // const homeSpread = (info.markets[1].outcomes[0].point) ? info.markets[1].outcomes[0].point : ''
+        // const awaySpread = info.markets[1].outcomes[1].point
     
         return (
             <ImageListItem key={info.key}>
                 <Card>
                     <CardContent>
-                        <Typography fontSize='1.5rem'>{info.title}</Typography>
+                        <Typography fontSize='1.5rem' fontWeight='500'>{info.title}</Typography>
                         <Typography>{homeName}: {homePrice}</Typography>
                         <Typography>{awayName}: {awayPrice}</Typography>
                     </CardContent>
@@ -30,6 +32,7 @@ const Game = ({game}) => {
             </ImageList>
     )
 }
-
+// { info.markets[1].outcomes[0].point && <Typography>{info.markets[1].outcomes[0].point}</Typography> }
+// { info.markets[1].outcomes[1].point && <Typography>{info.markets[1].outcomes[1].point}</Typography> }
 
 export default Game

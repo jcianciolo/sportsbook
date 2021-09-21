@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import Game from './components/Game';
 import Games from './components/Games';
-import Typography from '@mui/material/Typography'
 import '@fontsource/roboto'
 import { CircularProgress } from '@mui/material';
 import Box from '@mui/material/Box';
